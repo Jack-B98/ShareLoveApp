@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var loginErrorMessage: UILabel!
     @IBOutlet weak var userEmail: UITextField!
     
     @IBOutlet weak var userPassword: UITextField!
@@ -20,7 +21,36 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if (segue.identifier == "userEntered")
+        {
+            
+            //moonHop.earthW = Double(self.userWeight.text!)!
+        
+            
+            let intoApp = segue.destination as! FirstViewController
+                
+                
+            
+        }
+        
+    }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if(identifier == "userEntered"){
+            if(self.userEmail.text!.isEmpty == true ){
+                
+                self.loginErrorMessage.isHidden = false
+                return false
+                
+            }
+        }
+        
+        
+        return true
+        
+    }
     
 
     /*
