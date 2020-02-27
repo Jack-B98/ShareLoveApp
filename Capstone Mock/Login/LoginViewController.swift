@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
             //moonHop.earthW = Double(self.userWeight.text!)!
         
             
-            let intoApp = segue.destination as! FirstViewController
+            //let intoApp = segue.destination as! FirstViewController
                 
                 
             
