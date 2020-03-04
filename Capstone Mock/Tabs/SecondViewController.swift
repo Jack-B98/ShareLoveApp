@@ -11,18 +11,33 @@ import UIKit
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var totalLabel: UILabel!
+    
+    var currentAmount = 0.00
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
     @IBAction func numbers(_ sender: UIButton) {
-        totalLabel.text = totalLabel.text! + String(sender.tag - 1)
+        currentAmount = Double((currentAmount*10) + (Double(sender.tag-1) * 0.01))
+        currentAmount = Double(round(100*currentAmount)/100)
+        print(currentAmount)
+        //var indy = String(currentAmount).firstIndex(of: ".")!
+        //indy.
+        //String(currentAmount).prefix(through:  Index(2)+ String(currentAmount).firstIndex(of: ".")!, index)
+        totalLabel.text = "$ " + String(currentAmount) //String(currentAmount).prefix(upTo: Index(2)+String(currentAmount).firstIndex(of: ".")!)
         
     }
     @IBAction func backspace(_ sender: UIButton) {
-        if(totalLabel.text!.count > 1){
-            totalLabel.text?.removeLast()
+        currentAmount = Double(currentAmount/10)
+        currentAmount = Double(round(100*currentAmount)/100)
+        print(currentAmount)
+        if(currentAmount == 0.0){
+            totalLabel.text = "$ 0.00"
+        } else{
+            totalLabel.text = "$ " + String(currentAmount)
+        
+            
         }
     }
     
@@ -36,7 +51,7 @@ class SecondViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             
             
-            self.totalLabel.text = "$"
+            self.totalLabel.text = "$ 0.00"
     
             
         }))

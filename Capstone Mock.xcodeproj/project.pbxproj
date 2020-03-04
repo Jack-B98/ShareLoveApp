@@ -18,6 +18,8 @@
 		5FF6414624032C1500B33487 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF6414424032C1500B33487 /* LaunchScreen.storyboard */; };
 		5FF6414E2403439F00B33487 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF6414D2403439F00B33487 /* LoginViewController.swift */; };
 		5FF6415024034A8B00B33487 /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF6414F24034A8B00B33487 /* AccountCreationView.swift */; };
+		783F79E22410292B00BF50BD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783F79E12410292B00BF50BD /* Profile.storyboard */; };
+		7883D93B24102F5A002E670C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7883D93A24102F5A002E670C /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		5FF6414724032C1500B33487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF6414D2403439F00B33487 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5FF6414F24034A8B00B33487 /* AccountCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationView.swift; sourceTree = "<group>"; };
+		783F79E12410292B00BF50BD /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		7883D93A24102F5A002E670C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				5FF2139B24088255008630B4 /* tabs.storyboard */,
+				783F79E12410292B00BF50BD /* Profile.storyboard */,
 				5F2B80E02406FF8C0086D307 /* ProfileViewController.swift */,
 				5FF6413B24032C1400B33487 /* FirstViewController.swift */,
 				5FF6413D24032C1400B33487 /* SecondViewController.swift */,
+				7883D93A24102F5A002E670C /* EditProfileViewController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -158,6 +164,7 @@
 			files = (
 				5FF2139C24088255008630B4 /* tabs.storyboard in Resources */,
 				5FF6414624032C1500B33487 /* LaunchScreen.storyboard in Resources */,
+				783F79E22410292B00BF50BD /* Profile.storyboard in Resources */,
 				5FF6414324032C1500B33487 /* Assets.xcassets in Resources */,
 				5FF6414124032C1400B33487 /* Main.storyboard in Resources */,
 			);
@@ -170,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7883D93B24102F5A002E670C /* EditProfileViewController.swift in Sources */,
 				5FF6413E24032C1400B33487 /* SecondViewController.swift in Sources */,
 				5FF6415024034A8B00B33487 /* AccountCreationView.swift in Sources */,
 				5FF6413C24032C1400B33487 /* FirstViewController.swift in Sources */,
