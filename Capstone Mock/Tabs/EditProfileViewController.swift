@@ -17,6 +17,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     
+    
      //this is the array to store Fruit entities from the coredata
      
      var changing = false
@@ -28,13 +29,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //navBar
         // Do any additional setup after loading the view.
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    
+    @IBAction func saveEdits(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
+    
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
     
@@ -42,6 +51,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         // Local variable inserted by Swift 4.2 migrator.
