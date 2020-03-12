@@ -20,35 +20,22 @@ class AccountCreationView: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
     {
-        if (segue.identifier == "accountCreated")
+        var shouldCreate:Bool = false;
+        if (identifier == "accountCreated")
         {
-            
-            //moonHop.earthW = Double(self.userWeight.text!)!
-        
-            
-            let intoApp = segue.destination as! FirstViewController
-                
-                
-            
-        }
-        
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if(identifier == "accountCreated"){
-            if(self.userEmail.text!.isEmpty == true ){
-                
+            if (self.userEmail.text!.isEmpty == true || self.userPassword.text!.isEmpty == true)
+            {
                 self.accountCreationErrorMessage.isHidden = false
-                return false
-                
+            }
+            else
+            {
+                shouldCreate = true
             }
         }
         
-        
-        return true
-        
+        return shouldCreate
     }
     
 

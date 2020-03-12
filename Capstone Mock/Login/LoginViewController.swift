@@ -21,34 +21,27 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
     {
-        if (segue.identifier == "userEntered")
+        var shouldGo:Bool = false
+        if (identifier == "userEntered")
         {
-            
-            //moonHop.earthW = Double(self.userWeight.text!)!
-        
-            
-            //let intoApp = segue.destination as! FirstViewController
-                
-                
-            
-        }
-        
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if(identifier == "userEntered"){
-            if(self.userEmail.text!.isEmpty == true && self.userPassword.text!.isEmpty == true){
-                
+            if (self.userEmail.text!.isEmpty == true || self.userPassword.text!.isEmpty == true)
+            {
                 self.loginErrorMessage.isHidden = false
-                return false
-                
+            }
+            else
+            {
+                shouldGo = true;
             }
         }
         
+        if (identifier == "newUser")
+        {
+            shouldGo = true
+        }
         
-        return true
+        return shouldGo
         
     }
     
