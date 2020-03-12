@@ -54,15 +54,43 @@ class SecondViewController: UIViewController, UITextViewDelegate {
         
     }
     @IBAction func backspace(_ sender: UIButton) {
-        currentAmount = Double(currentAmount/10)
-        currentAmount = Double(round(100*currentAmount)/100)
-        print(currentAmount)
-        if(currentAmount == 0.0){
-            totalLabel.text = "$ 0.00"
-        } else{
-            totalLabel.text = "$ " + String(currentAmount)
         
+        if (currentAmount > 1)
+        {
+            let toInt = Int(currentAmount)
+            let deci = currentAmount - Double(toInt)
+            let decToInt = Int(deci * 10)
+            let lastDig = (deci * 10) - Double(decToInt)
+            let zeroLast = lastDig * 0.1
             
+            currentAmount = Double(currentAmount - zeroLast)
+            currentAmount = Double(currentAmount*0.1)
+            print(currentAmount)
+            if(currentAmount == 0.0){
+                totalLabel.text = "$ 0.00"
+            } else{
+                totalLabel.text = "$ " + String(format: "%.2f", abs(currentAmount))
+            
+                
+            }
+        }
+        else
+        {
+            let dec = currentAmount
+            let dToI = Int(dec  * 10)
+            let lastD = (dec * 10) - Double(dToI)
+            let zeroOut = lastD * 0.1
+            
+            currentAmount = Double(currentAmount - zeroOut)
+            currentAmount = Double(currentAmount*0.1)
+            print(currentAmount)
+            if(currentAmount == 0.0){
+                totalLabel.text = "$ 0.00"
+            } else{
+                totalLabel.text = "$ " + String(format: "%.2f", abs(currentAmount))
+            
+                
+            }
         }
     }
     

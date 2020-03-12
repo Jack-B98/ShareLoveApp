@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if(identifier == "userEntered"){
-            if(self.userEmail.text!.isEmpty == true ){
+            if(self.userEmail.text!.isEmpty == true && self.userPassword.text!.isEmpty == true){
                 
                 self.loginErrorMessage.isHidden = false
                 return false
