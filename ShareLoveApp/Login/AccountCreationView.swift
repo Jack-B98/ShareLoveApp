@@ -200,8 +200,21 @@ class AccountCreationView: UIViewController {
                 
                 destinationReference.setValue(userProfile.toDictionary())
                 
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    if user == nil {
+                        // No User is signed in.
+                        print("No User is signed in")
+                        Auth.auth().signIn(withEmail: self.userEmail.text!, password: self.userPassword.text!) { authResult, error in
+                            guard (authResult?.user) != nil else {
+                                let errorFound = error! as NSError
+                                print(errorFound.localizedDescription)
+                                return
+                      }
+                    }
+                  }
                 self.performSegue(withIdentifier: "accountCreated", sender: self)
-               }
+                }
+        }
 
     }
     

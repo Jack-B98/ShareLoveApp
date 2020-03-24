@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        checkLogInStatus()
     }
     
     /*
@@ -93,6 +94,24 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true)
                 return
             }
+    }
+    
+    func checkLogInStatus()
+    {
+        Auth.auth().addStateDidChangeListener { auth, user in
+          if let user = user {
+            // User is signed in.
+            self.performSegue(withIdentifier: "userEntered", sender: self)
+          } else {
+            // No User is signed in. Show user the login screen
+            print("No User is signed in")
+          }
+        }
+    }
+    
+    @IBAction func returnFromProfileView(segue: UIStoryboardSegue)
+    {
+
     }
     
 }
