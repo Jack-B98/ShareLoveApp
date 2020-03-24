@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33C43B86A608965B74657E06 /* Pods_ShareLoveApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477AFBBCB349F8BDF501DB44 /* Pods_ShareLoveApp.framework */; };
+		D67E64B42404A4AC0046FC35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E64B32404A4AC0046FC35 /* AppDelegate.swift */; };
+		D67E64B62404A4AD0046FC35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E64B52404A4AC0046FC35 /* SceneDelegate.swift */; };
+		D67E64BD2404A4AE0046FC35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67E64BC2404A4AE0046FC35 /* Assets.xcassets */; };
+		D67E64C02404A4AE0046FC35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67E64BE2404A4AE0046FC35 /* LaunchScreen.storyboard */; };
+		D67E65092404CEBE0046FC35 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E65082404CEBE0046FC35 /* User.swift */; };
+		D67E651124062BEB0046FC35 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E651024062BEB0046FC35 /* UserList.swift */; };
+		D689D46B2419A2AD00A50104 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D689D4672419A2AD00A50104 /* Main.storyboard */; };
+		D689D46C2419A2AD00A50104 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689D4692419A2AD00A50104 /* LoginViewController.swift */; };
+		D689D46D2419A2AD00A50104 /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689D46A2419A2AD00A50104 /* AccountCreationView.swift */; };
+		D689D4762419A2B600A50104 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689D46F2419A2B600A50104 /* FirstViewController.swift */; };
+		D689D4782419A2B600A50104 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689D4712419A2B600A50104 /* EditProfileViewController.swift */; };
+		D689D4792419A2B600A50104 /* editProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689D4722419A2B600A50104 /* editProfileController.swift */; };
+		D689D47A2419A2B600A50104 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689D4732419A2B600A50104 /* ProfileViewController.swift */; };
+		D689D47B2419A2B600A50104 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689D4742419A2B600A50104 /* SecondViewController.swift */; };
+		D6A06088241D790A00D98AAE /* tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A06087241D790A00D98AAE /* tabs.storyboard */; };
+		D6AE743A2419B83B006DEF7F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6AE74392419B83B006DEF7F /* Profile.storyboard */; };
+		D6AF749C241D82CA0074613F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6AF749B241D82CA0074613F /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2489E102A81E964E4CA70B49 /* Pods-ShareLoveApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareLoveApp.debug.xcconfig"; path = "Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp.debug.xcconfig"; sourceTree = "<group>"; };
+		477AFBBCB349F8BDF501DB44 /* Pods_ShareLoveApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareLoveApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA633EA305A8877A390B0D4A /* Pods-ShareLoveApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareLoveApp.release.xcconfig"; path = "Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp.release.xcconfig"; sourceTree = "<group>"; };
+		D67E64B02404A4AC0046FC35 /* ShareLoveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareLoveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D67E64B32404A4AC0046FC35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D67E64B52404A4AC0046FC35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D67E64BC2404A4AE0046FC35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D67E64BF2404A4AE0046FC35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D67E64C12404A4AE0046FC35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D67E65082404CEBE0046FC35 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D67E651024062BEB0046FC35 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		D689D4682419A2AD00A50104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D689D4692419A2AD00A50104 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D689D46A2419A2AD00A50104 /* AccountCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationView.swift; sourceTree = "<group>"; };
+		D689D46F2419A2B600A50104 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		D689D4712419A2B600A50104 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		D689D4722419A2B600A50104 /* editProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editProfileController.swift; sourceTree = "<group>"; };
+		D689D4732419A2B600A50104 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D689D4742419A2B600A50104 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D6A06087241D790A00D98AAE /* tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = tabs.storyboard; path = ../tabs.storyboard; sourceTree = "<group>"; };
+		D6AE74392419B83B006DEF7F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Profile.storyboard; sourceTree = "<group>"; };
+		D6AF749B241D82CA0074613F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D67E64AD2404A4AC0046FC35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C43B86A608965B74657E06 /* Pods_ShareLoveApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		801A9C51E94D2977FDC6BFC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2489E102A81E964E4CA70B49 /* Pods-ShareLoveApp.debug.xcconfig */,
+				BA633EA305A8877A390B0D4A /* Pods-ShareLoveApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D67E64A72404A4AC0046FC35 = {
+			isa = PBXGroup;
+			children = (
+				D67E64C92404ACB90046FC35 /* Databse */,
+				D67E64B22404A4AC0046FC35 /* ShareLoveApp */,
+				D67E64B12404A4AC0046FC35 /* Products */,
+				801A9C51E94D2977FDC6BFC9 /* Pods */,
+				E26A8562FE7C58E8E526697E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D67E64B12404A4AC0046FC35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D67E64B02404A4AC0046FC35 /* ShareLoveApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D67E64B22404A4AC0046FC35 /* ShareLoveApp */ = {
+			isa = PBXGroup;
+			children = (
+				D689D46E2419A2B600A50104 /* Tabs */,
+				D689D4662419A2AD00A50104 /* Login */,
+				D67E64B32404A4AC0046FC35 /* AppDelegate.swift */,
+				D67E64B52404A4AC0046FC35 /* SceneDelegate.swift */,
+				D67E64BC2404A4AE0046FC35 /* Assets.xcassets */,
+				D67E64BE2404A4AE0046FC35 /* LaunchScreen.storyboard */,
+				D67E64C12404A4AE0046FC35 /* Info.plist */,
+				D6AF749B241D82CA0074613F /* GoogleService-Info.plist */,
+			);
+			path = ShareLoveApp;
+			sourceTree = "<group>";
+		};
+		D67E64C92404ACB90046FC35 /* Databse */ = {
+			isa = PBXGroup;
+			children = (
+				D67E65082404CEBE0046FC35 /* User.swift */,
+				D67E651024062BEB0046FC35 /* UserList.swift */,
+			);
+			path = Databse;
+			sourceTree = "<group>";
+		};
+		D689D4662419A2AD00A50104 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D689D4672419A2AD00A50104 /* Main.storyboard */,
+				D689D4692419A2AD00A50104 /* LoginViewController.swift */,
+				D689D46A2419A2AD00A50104 /* AccountCreationView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D689D46E2419A2B600A50104 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				D6AE74392419B83B006DEF7F /* Profile.storyboard */,
+				D689D46F2419A2B600A50104 /* FirstViewController.swift */,
+				D689D4712419A2B600A50104 /* EditProfileViewController.swift */,
+				D689D4722419A2B600A50104 /* editProfileController.swift */,
+				D689D4732419A2B600A50104 /* ProfileViewController.swift */,
+				D689D4742419A2B600A50104 /* SecondViewController.swift */,
+				D6A06087241D790A00D98AAE /* tabs.storyboard */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		E26A8562FE7C58E8E526697E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				477AFBBCB349F8BDF501DB44 /* Pods_ShareLoveApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D67E64AF2404A4AC0046FC35 /* ShareLoveApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D67E64C42404A4AE0046FC35 /* Build configuration list for PBXNativeTarget "ShareLoveApp" */;
+			buildPhases = (
+				C0A9E54CF38DF3F0B2EC431B /* [CP] Check Pods Manifest.lock */,
+				D67E64AC2404A4AC0046FC35 /* Sources */,
+				D67E64AD2404A4AC0046FC35 /* Frameworks */,
+				D67E64AE2404A4AC0046FC35 /* Resources */,
+				E05277C47AB0233906B48845 /* [CP] Embed Pods Frameworks */,
+				223F26F63D1644945E9002C3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareLoveApp;
+			productName = ShareLoveApp;
+			productReference = D67E64B02404A4AC0046FC35 /* ShareLoveApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D67E64A82404A4AC0046FC35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				TargetAttributes = {
+					D67E64AF2404A4AC0046FC35 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = D67E64AB2404A4AC0046FC35 /* Build configuration list for PBXProject "ShareLoveApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D67E64A72404A4AC0046FC35;
+			productRefGroup = D67E64B12404A4AC0046FC35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D67E64AF2404A4AC0046FC35 /* ShareLoveApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D67E64AE2404A4AC0046FC35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A06088241D790A00D98AAE /* tabs.storyboard in Resources */,
+				D67E64C02404A4AE0046FC35 /* LaunchScreen.storyboard in Resources */,
+				D689D46B2419A2AD00A50104 /* Main.storyboard in Resources */,
+				D6AE743A2419B83B006DEF7F /* Profile.storyboard in Resources */,
+				D67E64BD2404A4AE0046FC35 /* Assets.xcassets in Resources */,
+				D6AF749C241D82CA0074613F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		223F26F63D1644945E9002C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0A9E54CF38DF3F0B2EC431B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShareLoveApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E05277C47AB0233906B48845 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareLoveApp/Pods-ShareLoveApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D67E64AC2404A4AC0046FC35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D689D47B2419A2B600A50104 /* SecondViewController.swift in Sources */,
+				D689D4782419A2B600A50104 /* EditProfileViewController.swift in Sources */,
+				D689D46D2419A2AD00A50104 /* AccountCreationView.swift in Sources */,
+				D689D4762419A2B600A50104 /* FirstViewController.swift in Sources */,
+				D67E65092404CEBE0046FC35 /* User.swift in Sources */,
+				D689D4792419A2B600A50104 /* editProfileController.swift in Sources */,
+				D67E64B42404A4AC0046FC35 /* AppDelegate.swift in Sources */,
+				D67E651124062BEB0046FC35 /* UserList.swift in Sources */,
+				D67E64B62404A4AD0046FC35 /* SceneDelegate.swift in Sources */,
+				D689D47A2419A2B600A50104 /* ProfileViewController.swift in Sources */,
+				D689D46C2419A2AD00A50104 /* LoginViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D67E64BE2404A4AE0046FC35 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D67E64BF2404A4AE0046FC35 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D689D4672419A2AD00A50104 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D689D4682419A2AD00A50104 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D67E64C22404A4AE0046FC35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D67E64C32404A4AE0046FC35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D67E64C52404A4AE0046FC35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2489E102A81E964E4CA70B49 /* Pods-ShareLoveApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShareLoveApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = asu.ShareLoveApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D67E64C62404A4AE0046FC35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA633EA305A8877A390B0D4A /* Pods-ShareLoveApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShareLoveApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = asu.ShareLoveApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D67E64AB2404A4AC0046FC35 /* Build configuration list for PBXProject "ShareLoveApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D67E64C22404A4AE0046FC35 /* Debug */,
+				D67E64C32404A4AE0046FC35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D67E64C42404A4AE0046FC35 /* Build configuration list for PBXNativeTarget "ShareLoveApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D67E64C52404A4AE0046FC35 /* Debug */,
+				D67E64C62404A4AE0046FC35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D67E64A82404A4AC0046FC35 /* Project object */;
+}
