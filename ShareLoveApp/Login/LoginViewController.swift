@@ -71,9 +71,32 @@ class LoginViewController: UIViewController {
                 
                 guard (authResult?.user) != nil else {
                 let errorFound = error! as NSError
-                let alert = UIAlertController(title: "Error", message: errorFound.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(alert, animated: true)
+
+                    if errorFound.code == 17011
+                    {
+                        let alert = UIAlertController(title: "User Not Found", message: errorFound.localizedDescription, preferredStyle: .alert)
+                        
+                        let createAccountAction = UIAlertAction(title: "Create Account", style: .default) { (action) in
+                            
+                            // Option 1: Jump to sign up page
+                            //self.performSegue(withIdentifier: "createAccount", sender: self)
+                            
+                            // Option 2: Create an account directly
+                            self.createAccount(email: self.userEmail.text!, password: self.userPassword.text!)
+                            self.userEmail.text = ""
+                            self.userPassword.text = ""
+                        }
+                        alert.addAction(createAccountAction)
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                    else
+                    {
+                        let alert = UIAlertController(title: "Error", message: errorFound.localizedDescription, preferredStyle: .alert)
+ 
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self.present(alert, animated: true)
+                    }
                 
                     return
                 }
@@ -83,7 +106,8 @@ class LoginViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
                     */
-                    
+                    self.userEmail.text = ""
+                    self.userPassword.text = ""
                     self.performSegue(withIdentifier: "userEntered", sender: self)
                 }
             }
@@ -94,6 +118,40 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true)
                 return
             }
+    }
+    
+    func createAccount(email: String, password: String)
+    {
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            guard (authResult?.user) != nil else {
+                let errorFound = error! as NSError
+                let alert = UIAlertController(title: "Error", message: errorFound.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                return
+            }
+        print("Account Created")
+        
+        let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
+           
+        let userProfile = User(email_address: email, first_name: "Null", last_name: "Null", photo: "No photo", money_recieved: 0.00, money_sent: 0.00)
+        
+        destinationReference.setValue(userProfile.toDictionary())
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user == nil {
+                // No User is signed in.
+                print("No User is signed in")
+                Auth.auth().signIn(withEmail: self.userEmail.text!, password: self.userPassword.text!) { authResult, error in
+                    guard (authResult?.user) != nil else {
+                        let errorFound = error! as NSError
+                        print(errorFound.localizedDescription)
+                        return
+                    }
+                }
+            }
+            }
+        }
     }
     
     func checkLogInStatus()

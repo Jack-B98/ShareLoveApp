@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>126600440993-lcqqmd4ak3jlerhn62mqim1pc9p57kti.apps.googleusercontent.com</string>
+	<string>126600440993-rjbud4389i00u6e3tqojvj37oqgob04u.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.126600440993-lcqqmd4ak3jlerhn62mqim1pc9p57kti</string>
+	<string>com.googleusercontent.apps.126600440993-rjbud4389i00u6e3tqojvj37oqgob04u</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBjxW89H-5wz4bVR90Tf1iIgOszxtkXmrI</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ASU.Capstone-Mock</string>
+	<string>asu.ShareLoveApp</string>
 	<key>PROJECT_ID</key>
 	<string>shareloveapp-647ea</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:126600440993:ios:74ce68cb016579e92ad4e0</string>
+	<string>1:126600440993:ios:f6b7f8c47cd7d94b2ad4e0</string>
 	<key>DATABASE_URL</key>
 	<string>https://shareloveapp-647ea.firebaseio.com</string>
 </dict>

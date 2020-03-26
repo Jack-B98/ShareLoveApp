@@ -163,6 +163,7 @@
                         <outlet property="userEmail" destination="thM-xh-cnH" id="nf7-Ge-nyE"/>
                         <outlet property="userPassword" destination="rV0-vC-Lpv" id="kOV-Eg-Dcu"/>
                         <segue destination="JSO-16-gKb" kind="presentation" identifier="userEntered" modalPresentationStyle="fullScreen" id="g8f-dM-1Hy"/>
+                        <segue destination="HaN-Fy-qXH" kind="presentation" identifier="createAccount" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="wCi-hN-P9F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIy-NO-bgb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -183,5 +184,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="g8f-dM-1Hy"/>
+        <segue reference="wCi-hN-P9F"/>
     </inferredMetricsTieBreakers>
 </document>
