@@ -13,8 +13,8 @@ import FirebaseAuth
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var userFace: UIImageView!
-    
     @IBOutlet weak var recieveStatus: UISwitch!
+    @IBOutlet weak var userName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +67,11 @@ class ProfileViewController: UIViewController {
     }
     */
 
-    var first_name = "", last_name = "", photo_url = ""
-    
+    //var first_name = "", last_name = "", photo_url = ""
     func showProfile()
     {
+        var user_name: String = "", photo_url: String = ""
+        
         let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
         
         /*
@@ -82,11 +83,11 @@ class ProfileViewController: UIViewController {
          var moneySent: Double?
          */
         destinationReference.observe(.value, with: { snapshot in
-        print(snapshot.children)
             let profile = snapshot.value as? NSDictionary
             let email = profile?["email"] as? String ?? ""
-            let firstName = profile?["firstName"] as? String ?? ""
-            let lastName = profile?["lastName"] as? String ?? ""
+            //let firstName = profile?["firstName"] as? String ?? ""
+            //let lastName = profile?["lastName"] as? String ?? ""
+            let name = profile?["name"] as? String ?? ""
             let moneyRecieved = profile?["moneyRecieved"] as? Double ?? 0.00
             let moneySent = profile?["moneySent"] as? Double ?? 0.00
             let photo = profile?["photo"] as? String ?? ""
@@ -101,17 +102,15 @@ class ProfileViewController: UIViewController {
                     self.userFace.image = UIImage(data: imageData)
                 }
             }
-            print(photo)
+            self.userName.text = name
             //self.photo.setImage(from: photoURL!)
             //self.email_address.text = email
             //self.name.text = firstName + " " + lastName
             //self.money_recieved.text = String(moneyRecieved)
             //self.money_sent.text = String(moneySent)
 
-            self.first_name = firstName
-            self.last_name = lastName
-            self.photo_url = photo
-            
+            //self.first_name = firstName
+            //self.last_name = lastName
         }){ (error) in
             print(error.localizedDescription)
         }
@@ -120,11 +119,15 @@ class ProfileViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToEditProfileView"{
-            if let toEditProfileViewController: EditProfileViewController = segue.destination as? EditProfileViewController {
+            print(self.userName.text!)
+            if let navController = segue.destination as? UINavigationController
+            {
+                let toEditProfileViewController: EditProfileViewController = navController.topViewController as! EditProfileViewController
                 
-                toEditProfileViewController.first_name = first_name
-                toEditProfileViewController.last_name = last_name
-                toEditProfileViewController.photo_url = photo_url
+                //toEditProfileViewController.first_name = first_name
+                //toEditProfileViewController.last_name = last_name
+                toEditProfileViewController.name = self.userName.text!
+                toEditProfileViewController.profile_photo = self.userFace.image!
             }
         }
     }
@@ -134,17 +137,11 @@ class ProfileViewController: UIViewController {
     {
         if let viewController = segue.source as? EditProfileViewController{
             
-            print(viewController.first_name)
-            print(viewController.last_name)
+            //print(viewController.first_name)
+            //print(viewController.last_name)
             //self.name.text = viewController.first_name + " " + viewController.last_name
-            
-            print(viewController.photo_url)
-            let photoURL = URL(string: viewController.photo_url)
-            let data = try? Data(contentsOf: photoURL!)
-
-            if let imageData = data {
-                self.userFace.image = UIImage(data: imageData)
-            }
+            self.userFace.image = viewController.profile_photo!
+            self.userName.text = viewController.name!
         }
     }
     

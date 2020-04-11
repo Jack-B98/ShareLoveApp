@@ -17,6 +17,7 @@ import FirebaseAuth
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate {
 
     @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
     
     
      //this is the array to store Fruit entities from the coredata
@@ -28,8 +29,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
      let picker = UIImagePickerController()
      var curPic:NSData = NSData()
     
+    //var first_name = "", last_name = "", photo_url = ""
+    var name: String?, profile_photo: UIImage?
     
-    var first_name = "", last_name = "", photo_url = ""
     @IBOutlet weak var photo: UIImageView!
     
     override func viewDidLoad() {
@@ -37,20 +39,20 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         //navBar
         // Do any additional setup after loading the view.
         
-        /*
-         self.firstName.text = first_name
-         self.lastName.text = last_name
-         
-         if photo != "No Photo"
-         {
-             let photoURL = URL(string: photo)
-             let data = try? Data(contentsOf: photoURL!)
 
-             if let imageData = data {
-                 self.userFace.image = UIImage(data: imageData)
-             }
-         }
-         */
+         //self.firstName.text = first_name
+         //self.lastName.text = last_name
+         
+        print(name ?? "No Name")
+        if let userName = name, userName != "Null"
+        {
+            self.nameTextField.text = userName
+        }
+        
+        if let profilePhoto = profile_photo
+        {
+            self.profilePictureImageView.image = profilePhoto
+        }
     }
     
     func updateProfileImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
@@ -117,20 +119,26 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
              rootReference.updateChildValues(["lastName":last_name])
          }
           */
-         if let new_photo = profilePictureImageView.image, pickPhoto == true
-         {
-             updateProfileImage(new_photo) { url in
-                 if let new_url = url
-                 {
-                     self.photo_url = new_url.absoluteString
-                     rootReference.updateChildValues(["photo":self.photo_url])
-                     print("Image URL: \(new_url.absoluteString)")
-                 }
-                 else{
-                     print ("No Photo URL\n")
-                 }
-             }
-         }
+        if let new_name = self.nameTextField.text, (new_name != "Name" && new_name != name)
+        {
+            name = new_name
+            print(name!)
+            rootReference.updateChildValues(["name":new_name])
+        }
+        if let new_photo = profilePictureImageView.image, pickPhoto == true
+        {
+            updateProfileImage(new_photo) { url in
+                if let new_url = url
+                {
+                    self.profile_photo = new_photo
+                    rootReference.updateChildValues(["photo":new_url.absoluteString])
+                    print("Image URL: \(new_url.absoluteString)")
+                }
+                else{
+                    print ("No Photo URL\n")
+                }
+            }
+        }
         dismiss(animated: true, completion: nil)
     }
    

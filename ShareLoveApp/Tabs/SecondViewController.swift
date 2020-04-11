@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SecondViewController: UIViewController, UITextViewDelegate {
 
@@ -79,14 +81,16 @@ class SecondViewController: UIViewController, UITextViewDelegate {
                 
                 
                 
-                
-                
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    
+                    let amount = String(format: "$%.02f", self.currentAmount)
+                    let message = self.senderMessage.text!
+                    self.saveMessage(amount: amount, message: message)
                     
                     self.senderMessage.text = ""
                     self.totalLabel.text = "$ 0.00"
+                    self.currentAmount = 0.0
             
-                    
                 }))
                 
                 
@@ -99,6 +103,48 @@ class SecondViewController: UIViewController, UITextViewDelegate {
         }))
         
         self.present(confirmation, animated: true)
+        
+    }
+    
+    var messageNum: Int = 0
+    func saveMessage(amount: String, message: String)
+    {
+        let userReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
+        
+        userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if (snapshot.exists())
+            {
+                let user = snapshot.value as? NSDictionary
+                //let firstName = user?["firstName"] as? String ?? "firstName"
+                //let lastName = user?["lastName"] as? String ?? "lastName"
+                let name = user?["name"] as? String ?? "Name"
+                let photo = user?["photo"] as? String ?? "Profile Photo"
+                
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "MMMM-dd-yyyy HH:mm"
+                let formattedDate = format.string(from: date)
+                
+                //let action = firstName + " " + lastName + " shared " + amount + " " + formattedDate
+                let action = name + " shared " + amount + " (" + formattedDate + ")"
+                
+                let social_feed = SocialFeed(action: action, message: message, photo: photo)
+                
+                let destinationReference = Database.database().reference().child("SocialFeedList").child(String(self.messageNum))
+                
+                destinationReference.setValue(social_feed.toDictionary())
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Error! No information for user!", message: nil, preferredStyle: .alert)
+                   
+                   alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                   }))
+                   self.present(alert, animated: true)
+            }
+        })
+        
+        messageNum += 1
     }
 }
 

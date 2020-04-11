@@ -78,13 +78,20 @@ class LoginViewController: UIViewController {
                         
                         let createAccountAction = UIAlertAction(title: "Create Account", style: .default) { (action) in
                             
+                            self.userEmail.text = ""
+                            self.userPassword.text = ""
+                            
                             // Option 1: Jump to sign up page
-                            //self.performSegue(withIdentifier: "createAccount", sender: self)
+                            self.performSegue(withIdentifier: "createAccount", sender: self)
+                            
+                            
                             
                             // Option 2: Create an account directly
+                            /*
                             self.createAccount(email: self.userEmail.text!, password: self.userPassword.text!)
                             self.userEmail.text = ""
                             self.userPassword.text = ""
+                             */
                         }
                         alert.addAction(createAccountAction)
                         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -134,7 +141,9 @@ class LoginViewController: UIViewController {
         
         let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
            
-        let userProfile = User(email_address: email, first_name: "Null", last_name: "Null", photo: "No photo", money_recieved: 0.00, money_sent: 0.00)
+        //let userProfile = User(email_address: email, first_name: "Null", last_name: "Null", photo: "No photo", money_recieved: 0.00, money_sent: 0.00)
+            
+        let userProfile = User(email_address: email, name: "Name", photo: "No photo", money_recieved: 0.00, money_sent: 0.00)
         
         destinationReference.setValue(userProfile.toDictionary())
         

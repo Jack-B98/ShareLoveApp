@@ -196,7 +196,7 @@ class AccountCreationView: UIViewController {
                 
                 let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
                    
-                let userProfile = User(email_address: email_address, first_name: "Null", last_name: "Null", photo: "No photo", money_recieved: 0.00, money_sent: 0.00)
+                let userProfile = User(email_address: email_address, name: "Name", photo: "No photo", money_recieved: 0.00, money_sent: 0.00)
                 
                 destinationReference.setValue(userProfile.toDictionary())
                 
@@ -212,6 +212,8 @@ class AccountCreationView: UIViewController {
                       }
                     }
                   }
+                self.userEmail.text = ""
+                self.userPassword.text = ""
                 self.performSegue(withIdentifier: "accountCreated", sender: self)
                 }
         }
