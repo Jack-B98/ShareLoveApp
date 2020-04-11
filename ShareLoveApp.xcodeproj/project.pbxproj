@@ -25,6 +25,9 @@
 		D6A06088241D790A00D98AAE /* tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A06087241D790A00D98AAE /* tabs.storyboard */; };
 		D6AE743A2419B83B006DEF7F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6AE74392419B83B006DEF7F /* Profile.storyboard */; };
 		D6AF749C241D82CA0074613F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6AF749B241D82CA0074613F /* GoogleService-Info.plist */; };
+		D6F7F31F243AD2AB000D2881 /* SocialFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7F31E243AD2AB000D2881 /* SocialFeed.swift */; };
+		D6F7F321243AD6FC000D2881 /* SocialFeedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7F320243AD6FC000D2881 /* SocialFeedList.swift */; };
+		D6F7F323243AF059000D2881 /* SocialFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7F322243AF059000D2881 /* SocialFeedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		D6A06087241D790A00D98AAE /* tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = tabs.storyboard; path = ../tabs.storyboard; sourceTree = "<group>"; };
 		D6AE74392419B83B006DEF7F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Profile.storyboard; sourceTree = "<group>"; };
 		D6AF749B241D82CA0074613F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6F7F31E243AD2AB000D2881 /* SocialFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeed.swift; sourceTree = "<group>"; };
+		D6F7F320243AD6FC000D2881 /* SocialFeedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeedList.swift; sourceTree = "<group>"; };
+		D6F7F322243AF059000D2881 /* SocialFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,8 @@
 			children = (
 				D67E65082404CEBE0046FC35 /* User.swift */,
 				D67E651024062BEB0046FC35 /* UserList.swift */,
+				D6F7F31E243AD2AB000D2881 /* SocialFeed.swift */,
+				D6F7F320243AD6FC000D2881 /* SocialFeedList.swift */,
 			);
 			path = Databse;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 			children = (
 				D6AE74392419B83B006DEF7F /* Profile.storyboard */,
 				D689D46F2419A2B600A50104 /* FirstViewController.swift */,
+				D6F7F322243AF059000D2881 /* SocialFeedTableViewCell.swift */,
 				D689D4712419A2B600A50104 /* EditProfileViewController.swift */,
 				D689D4722419A2B600A50104 /* editProfileController.swift */,
 				D689D4732419A2B600A50104 /* ProfileViewController.swift */,
@@ -283,12 +292,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F7F323243AF059000D2881 /* SocialFeedTableViewCell.swift in Sources */,
 				D689D47B2419A2B600A50104 /* SecondViewController.swift in Sources */,
 				D689D4782419A2B600A50104 /* EditProfileViewController.swift in Sources */,
 				D689D46D2419A2AD00A50104 /* AccountCreationView.swift in Sources */,
 				D689D4762419A2B600A50104 /* FirstViewController.swift in Sources */,
 				D67E65092404CEBE0046FC35 /* User.swift in Sources */,
 				D689D4792419A2B600A50104 /* editProfileController.swift in Sources */,
+				D6F7F321243AD6FC000D2881 /* SocialFeedList.swift in Sources */,
+				D6F7F31F243AD2AB000D2881 /* SocialFeed.swift in Sources */,
 				D67E64B42404A4AC0046FC35 /* AppDelegate.swift in Sources */,
 				D67E651124062BEB0046FC35 /* UserList.swift in Sources */,
 				D67E64B62404A4AD0046FC35 /* SceneDelegate.swift in Sources */,
