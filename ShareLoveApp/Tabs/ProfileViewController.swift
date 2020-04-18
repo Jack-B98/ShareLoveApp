@@ -12,7 +12,12 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var userFace: UIImageView!
+    @IBOutlet weak var userFace: UIImageView!{
+        didSet {
+            userFace.layer.cornerRadius = userFace.bounds.width / 2
+            userFace.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var recieveStatus: UISwitch!
     @IBOutlet weak var userName: UILabel!
     

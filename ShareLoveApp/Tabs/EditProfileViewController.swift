@@ -16,7 +16,12 @@ import FirebaseAuth
 @available(iOS 13.0, *)
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate {
 
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var profilePictureImageView: UIImageView!{
+        didSet {
+            profilePictureImageView.layer.cornerRadius = profilePictureImageView.bounds.width / 2
+            profilePictureImageView.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var nameTextField: UITextField!
     
     

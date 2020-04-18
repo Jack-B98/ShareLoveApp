@@ -106,7 +106,6 @@ class SecondViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    var messageNum: Int = 0
     func saveMessage(amount: String, message: String)
     {
         let userReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
@@ -122,7 +121,7 @@ class SecondViewController: UIViewController, UITextViewDelegate {
                 
                 let date = Date()
                 let format = DateFormatter()
-                format.dateFormat = "MMMM-dd-yyyy HH:mm"
+                format.dateFormat = "MMM-d, HH:mm"
                 let formattedDate = format.string(from: date)
                 
                 //let action = firstName + " " + lastName + " shared " + amount + " " + formattedDate
@@ -130,7 +129,7 @@ class SecondViewController: UIViewController, UITextViewDelegate {
                 
                 let social_feed = SocialFeed(action: action, message: message, photo: photo)
                 
-                let destinationReference = Database.database().reference().child("SocialFeedList").child(String(self.messageNum))
+                let destinationReference = Database.database().reference().child("SocialFeedList").child(name + " shared money")
                 
                 destinationReference.setValue(social_feed.toDictionary())
             }
@@ -144,7 +143,6 @@ class SecondViewController: UIViewController, UITextViewDelegate {
             }
         })
         
-        messageNum += 1
     }
 }
 
