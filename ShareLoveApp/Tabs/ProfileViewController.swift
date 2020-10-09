@@ -90,77 +90,51 @@ class ProfileViewController: UIViewController {
     //var first_name = "", last_name = "", photo_url = ""
     func showProfile()
     {
-               let googleUser = GIDSignIn.sharedInstance()!.currentUser
-               if let user = googleUser
-               {
-                   let fullName = user.profile.name
-                   self.userName.text = fullName
-                   let givenName = user.profile.givenName
-                   let familyName = user.profile.familyName
-                   let email = user.profile.email
-                   if user.profile.hasImage
-                   {
-                       let userDP = user.profile.imageURL(withDimension: 100)
-                       let data = try? Data(contentsOf: userDP!)
+                          var user_name: String = "", photo_url: String = ""
+                          
+                          let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
+                          
+                          /*
+                           var email: String?
+                           var firstName: String?
+                           var lastName: String?
+                           var photo: String?
+                           var moneyRecieved: Double?
+                           var moneySent: Double?
+                           */
+                          destinationReference.observe(.value, with: { snapshot in
+                              let profile = snapshot.value as? NSDictionary
+                              let email = profile?["email"] as? String ?? ""
+                              //let firstName = profile?["firstName"] as? String ?? ""
+                              //let lastName = profile?["lastName"] as? String ?? ""
+                              let name = profile?["name"] as? String ?? ""
+                              let moneyRecieved = profile?["moneyRecieved"] as? Double ?? 0.00
+                              let moneySent = profile?["moneySent"] as? Double ?? 0.00
+                              let photo = profile?["photo"] as? String ?? ""
+                              
 
-                       if let imageData = data {
-                           self.userFace.image = UIImage(data: imageData)
-                       }
-                   } else {
-                       
-                   }
-               }
-               else if checkFacebookLogInStatus() == true {
-                   getFacebookProfile()
-               }
-               else
-               {
-                   var user_name: String = "", photo_url: String = ""
-                   
-                   let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
-                   
-                   /*
-                    var email: String?
-                    var firstName: String?
-                    var lastName: String?
-                    var photo: String?
-                    var moneyRecieved: Double?
-                    var moneySent: Double?
-                    */
-                   destinationReference.observe(.value, with: { snapshot in
-                       let profile = snapshot.value as? NSDictionary
-                       let email = profile?["email"] as? String ?? ""
-                       //let firstName = profile?["firstName"] as? String ?? ""
-                       //let lastName = profile?["lastName"] as? String ?? ""
-                       let name = profile?["name"] as? String ?? ""
-                       let moneyRecieved = profile?["moneyRecieved"] as? Double ?? 0.00
-                       let moneySent = profile?["moneySent"] as? Double ?? 0.00
-                       let photo = profile?["photo"] as? String ?? ""
-                       
+                              if photo != "No photo"
+                              {
+                                  let photoURL = URL(string: photo)
+                                  let data = try? Data(contentsOf: photoURL!)
 
-                       if photo != "No photo"
-                       {
-                           let photoURL = URL(string: photo)
-                           let data = try? Data(contentsOf: photoURL!)
+                                  if let imageData = data {
+                                      self.userFace.image = UIImage(data: imageData)
+                                  }
+                              }
+               
+                              self.userName.text = name
+                              //self.photo.setImage(from: photoURL!)
+                              //self.email_address.text = email
+                              //self.name.text = firstName + " " + lastName
+                              //self.money_recieved.text = String(moneyRecieved)
+                              //self.money_sent.text = String(moneySent)
 
-                           if let imageData = data {
-                               self.userFace.image = UIImage(data: imageData)
-                           }
-                       }
-        
-                       self.userName.text = name
-                       //self.photo.setImage(from: photoURL!)
-                       //self.email_address.text = email
-                       //self.name.text = firstName + " " + lastName
-                       //self.money_recieved.text = String(moneyRecieved)
-                       //self.money_sent.text = String(moneySent)
-
-                       //self.first_name = firstName
-                       //self.last_name = lastName
-                   }){ (error) in
-                       print(error.localizedDescription)
-                   }
-               }
+                              //self.first_name = firstName
+                              //self.last_name = lastName
+                          }){ (error) in
+                              print(error.localizedDescription)
+                          }
     }
     
 

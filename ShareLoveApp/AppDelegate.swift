@@ -34,6 +34,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             //Otherwise, we've succeeded
             print("User has logged in through Google.")
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            var urlString: String = "No photo url"
+            if user.profile.hasImage
+            {
+                let userDP = user.profile.imageURL(withDimension: 100)
+                urlString = userDP!.absoluteString
+            } else {}
+            let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
+            destinationReference.observeSingleEvent(of: .value) { (snapshot) in
+                if snapshot.exists(){
+                    print("User's Google profile exists\n")
+                }else{
+                    let userProfile = User(email_address: email!, name: fullName!, photo: urlString, money_recieved: 0.00, money_sent: 0.00)
+                    
+                    destinationReference.setValue(userProfile.toDictionary())
+                }
+            }
         }
     }
 

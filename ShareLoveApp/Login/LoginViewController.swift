@@ -80,6 +80,41 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func storeFacebookProfile()
+    {
+        let requestedFields = "email, first_name, last_name, picture.type(normal)"
+        GraphRequest.init(graphPath: "me", parameters: ["fields":requestedFields]).start { (connection, result, error) -> Void in
+            guard let result = result as? [String: Any],
+                error == nil else {
+                    print("Failed to make facebook graph request")
+                    return
+            }
+            
+            guard let firstName = result["first_name"] as? String,
+                let lastName = result["last_name"] as? String,
+                let email = result["email"] as? String,
+                let picture = result["picture"] as? [String: Any],
+                let data = picture["data"] as? [String: Any],
+                let pictureUrl = data["url"] as? String
+                else {
+                    print("Faield to get email and name from fb result")
+                    return
+            }
+            let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
+            destinationReference.observeSingleEvent(of: .value) { (snapshot) in
+                if snapshot.exists(){
+                    print("User's Facebook profile exists\n")
+                    print("User's Facebook profile image url: \(pictureUrl)")
+                }else{
+                    let userProfile = User(email_address: email, name: firstName + " " + lastName, photo: pictureUrl, money_recieved: 0.00, money_sent: 0.00)
+                    
+                    destinationReference.setValue(userProfile.toDictionary())
+                }
+            }
+        }
+    }
+
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if let error = error {
             print("Facebook login with error: \(error.localizedDescription)")
@@ -101,6 +136,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                     return
                 }
                 print("Facebook Login success!")
+                self.storeFacebookProfile()
                 self.performSegue(withIdentifier: "userEntered", sender: self)
             }
         }
