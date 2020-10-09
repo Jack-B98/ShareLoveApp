@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
+import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
     
@@ -33,33 +35,17 @@ class ProfileViewController: UIViewController {
         
         
             let alert = UIAlertController(title: "Are you sure you don't want to recieve some love?", message: "We want to make sure that you are opting out of any chance to recieve money. If you want decide to turn recieving money off, you can turn it back on at any time.", preferredStyle: .alert)
-                
-                
-                
-                
-                
+
             alert.addAction(UIAlertAction(title: "No, I want to keep recieving money", style: .default, handler: { action in
-                    
-                
                 sender.setOn(true, animated: true)
-            
-                    
+
             }))
             alert.addAction(UIAlertAction(title: "Yes, I do not want to recieve money", style: .destructive, handler: { action in
-                    
-                    
-                    
-            
-                    
+    
             }))
-            
-            
+
             self.present(alert, animated: true)
         }
-            
-            
-            
-        
     }
     
     /*
@@ -71,54 +57,110 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func getFacebookProfile()
+    {
+        let requestedFields = "email, first_name, last_name, picture.type(normal)"
+        GraphRequest.init(graphPath: "me", parameters: ["fields":requestedFields]).start { (connection, result, error) -> Void in
+            guard let result = result as? [String: Any],
+                error == nil else {
+                    print("Failed to make facebook graph request")
+                    return
+            }
+            
+            guard let firstName = result["first_name"] as? String,
+                let lastName = result["last_name"] as? String,
+                let email = result["email"] as? String,
+                let picture = result["picture"] as? [String: Any],
+                let data = picture["data"] as? [String: Any],
+                let pictureUrl = data["url"] as? String
+                else {
+                    print("Faield to get email and name from fb result")
+                    return
+            }
+            self.userName.text = firstName + " " + lastName
+            let url = URL(string: pictureUrl)
+            let url_data = try? Data(contentsOf: url!)
+            if let imageData = url_data {
+                self.userFace.image = UIImage(data: imageData)
+            }
+        }
+    }
+    
     //var first_name = "", last_name = "", photo_url = ""
     func showProfile()
     {
-        var user_name: String = "", photo_url: String = ""
-        
-        let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
-        
-        /*
-         var email: String?
-         var firstName: String?
-         var lastName: String?
-         var photo: String?
-         var moneyRecieved: Double?
-         var moneySent: Double?
-         */
-        destinationReference.observe(.value, with: { snapshot in
-            let profile = snapshot.value as? NSDictionary
-            let email = profile?["email"] as? String ?? ""
-            //let firstName = profile?["firstName"] as? String ?? ""
-            //let lastName = profile?["lastName"] as? String ?? ""
-            let name = profile?["name"] as? String ?? ""
-            let moneyRecieved = profile?["moneyRecieved"] as? Double ?? 0.00
-            let moneySent = profile?["moneySent"] as? Double ?? 0.00
-            let photo = profile?["photo"] as? String ?? ""
-            
-            
-            if photo != "No photo"
-            {
-                let photoURL = URL(string: photo)
-                let data = try? Data(contentsOf: photoURL!)
+               let googleUser = GIDSignIn.sharedInstance()!.currentUser
+               if let user = googleUser
+               {
+                   let fullName = user.profile.name
+                   self.userName.text = fullName
+                   let givenName = user.profile.givenName
+                   let familyName = user.profile.familyName
+                   let email = user.profile.email
+                   if user.profile.hasImage
+                   {
+                       let userDP = user.profile.imageURL(withDimension: 100)
+                       let data = try? Data(contentsOf: userDP!)
 
-                if let imageData = data {
-                    self.userFace.image = UIImage(data: imageData)
-                }
-            }
-            self.userName.text = name
-            //self.photo.setImage(from: photoURL!)
-            //self.email_address.text = email
-            //self.name.text = firstName + " " + lastName
-            //self.money_recieved.text = String(moneyRecieved)
-            //self.money_sent.text = String(moneySent)
+                       if let imageData = data {
+                           self.userFace.image = UIImage(data: imageData)
+                       }
+                   } else {
+                       
+                   }
+               }
+               else if checkFacebookLogInStatus() == true {
+                   getFacebookProfile()
+               }
+               else
+               {
+                   var user_name: String = "", photo_url: String = ""
+                   
+                   let destinationReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
+                   
+                   /*
+                    var email: String?
+                    var firstName: String?
+                    var lastName: String?
+                    var photo: String?
+                    var moneyRecieved: Double?
+                    var moneySent: Double?
+                    */
+                   destinationReference.observe(.value, with: { snapshot in
+                       let profile = snapshot.value as? NSDictionary
+                       let email = profile?["email"] as? String ?? ""
+                       //let firstName = profile?["firstName"] as? String ?? ""
+                       //let lastName = profile?["lastName"] as? String ?? ""
+                       let name = profile?["name"] as? String ?? ""
+                       let moneyRecieved = profile?["moneyRecieved"] as? Double ?? 0.00
+                       let moneySent = profile?["moneySent"] as? Double ?? 0.00
+                       let photo = profile?["photo"] as? String ?? ""
+                       
 
-            //self.first_name = firstName
-            //self.last_name = lastName
-        }){ (error) in
-            print(error.localizedDescription)
-        }
+                       if photo != "No photo"
+                       {
+                           let photoURL = URL(string: photo)
+                           let data = try? Data(contentsOf: photoURL!)
+
+                           if let imageData = data {
+                               self.userFace.image = UIImage(data: imageData)
+                           }
+                       }
+        
+                       self.userName.text = name
+                       //self.photo.setImage(from: photoURL!)
+                       //self.email_address.text = email
+                       //self.name.text = firstName + " " + lastName
+                       //self.money_recieved.text = String(moneyRecieved)
+                       //self.money_sent.text = String(moneySent)
+
+                       //self.first_name = firstName
+                       //self.last_name = lastName
+                   }){ (error) in
+                       print(error.localizedDescription)
+                   }
+               }
     }
     
 
@@ -150,10 +192,22 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    func checkFacebookLogInStatus() -> Bool
+    {
+        if let token = AccessToken.current, !token.isExpired {
+            return true
+        }
+        return false
+    }
+    
     @IBAction func logOut(_ sender: UIButton) {
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            if checkFacebookLogInStatus() == true {
+                LoginManager.init().logOut()
+            }
             self.performSegue(withIdentifier: "returnToLoginView", sender: self)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)

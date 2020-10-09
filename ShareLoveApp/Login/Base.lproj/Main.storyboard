@@ -146,12 +146,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lm8-Ys-oQU" customClass="GIDSignInButton">
+                                <rect key="frame" x="96" y="646" width="222" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKP-cj-XJn" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="99" y="709" width="216" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99486654996871948" green="0.0068565644323825836" blue="0.0" alpha="0.84099422089041098" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="2Ge-7T-TAw"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person.crop.rectangle" catalog="system" id="aTD-3B-2bC"/>
                     <connections>
+                        <outlet property="facebookLogInButton" destination="NKP-cj-XJn" id="7HE-i3-ACc"/>
+                        <outlet property="googleSignInButton" destination="Lm8-Ys-oQU" id="7xR-Jq-VK4"/>
                         <outlet property="loginErrorMessage" destination="Cer-i9-ypX" id="aFE-5U-7Gh"/>
                         <outlet property="userEmail" destination="thM-xh-cnH" id="nf7-Ge-nyE"/>
                         <outlet property="userPassword" destination="rV0-vC-Lpv" id="kOV-Eg-Dcu"/>
@@ -176,7 +188,7 @@
         <image name="person.crop.rectangle" catalog="system" width="64" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RJG-eL-ePI"/>
+        <segue reference="g8f-dM-1Hy"/>
         <segue reference="wCi-hN-P9F"/>
     </inferredMetricsTieBreakers>
 </document>

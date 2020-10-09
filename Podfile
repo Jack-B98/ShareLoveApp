@@ -10,6 +10,8 @@ target 'ShareLoveApp' do
   # Pods for user authentication
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 
   # Pods for storing user information
   pod 'Firebase/Storage'

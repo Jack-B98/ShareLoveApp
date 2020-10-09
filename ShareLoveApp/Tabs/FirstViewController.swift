@@ -65,7 +65,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
  
     func setUpObserverForTable()
     {
-        print("Yes")
         let socialFeedRef = Database.database().reference().child("SocialFeedList")
         socialFeedRef.observe(.value, with: { snapshot in
         var newSocialFeedList:[SocialFeed] = []
