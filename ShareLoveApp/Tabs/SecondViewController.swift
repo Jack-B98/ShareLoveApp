@@ -84,6 +84,7 @@ class SecondViewController: UIViewController, UITextViewDelegate {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     
                     let amount = String(format: "$%.02f", self.currentAmount)
+                    self.updateMoneySent(newAmount: self.currentAmount)
                     let message = self.senderMessage.text!
                     self.saveMessage(amount: amount, message: message)
                     
@@ -121,7 +122,7 @@ class SecondViewController: UIViewController, UITextViewDelegate {
                 
                 let date = Date()
                 let format = DateFormatter()
-                format.dateFormat = "MMM-d, HH:mm"
+                format.dateFormat = "MMM-d, HH:mm:ss"
                 let formattedDate = format.string(from: date)
                 
                 //let action = firstName + " " + lastName + " shared " + amount + " " + formattedDate
@@ -129,7 +130,7 @@ class SecondViewController: UIViewController, UITextViewDelegate {
                 
                 let social_feed = SocialFeed(action: action, message: message, photo: photo)
                 
-                let destinationReference = Database.database().reference().child("SocialFeedList").child(name + " shared money")
+                let destinationReference = Database.database().reference().child("SocialFeedList").child(name + " shared money (\(formattedDate))")
                 
                 destinationReference.setValue(social_feed.toDictionary())
             }
@@ -143,6 +144,17 @@ class SecondViewController: UIViewController, UITextViewDelegate {
             }
         })
         
+    }
+    
+    func updateMoneySent(newAmount: Double) {
+        let userReference = Database.database().reference().child("UserList").child((Auth.auth().currentUser?.uid)!)
+        userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+        if (snapshot.exists()) {
+            let user = snapshot.value as? NSDictionary
+            let currentAmount = user?["moneySent"] as? Double ?? 0.00
+            userReference.updateChildValues(["moneySent": newAmount + currentAmount])
+            }
+        })
     }
 }
 

@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
     }
     @IBOutlet weak var recieveStatus: UISwitch!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var money_recieved: UILabel!
+    @IBOutlet weak var money_sent: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,8 +113,7 @@ class ProfileViewController: UIViewController {
                               let moneyRecieved = profile?["moneyRecieved"] as? Double ?? 0.00
                               let moneySent = profile?["moneySent"] as? Double ?? 0.00
                               let photo = profile?["photo"] as? String ?? ""
-                              
-
+ 
                               if photo != "No photo"
                               {
                                   let photoURL = URL(string: photo)
@@ -122,13 +123,13 @@ class ProfileViewController: UIViewController {
                                       self.userFace.image = UIImage(data: imageData)
                                   }
                               }
-               
+
                               self.userName.text = name
                               //self.photo.setImage(from: photoURL!)
                               //self.email_address.text = email
                               //self.name.text = firstName + " " + lastName
-                              //self.money_recieved.text = String(moneyRecieved)
-                              //self.money_sent.text = String(moneySent)
+                              self.money_recieved.text = String(moneyRecieved)
+                              self.money_sent.text = String(moneySent)
 
                               //self.first_name = firstName
                               //self.last_name = lastName
